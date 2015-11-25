@@ -206,6 +206,12 @@ window.onload = function() {
     var btnNew = document.getElementById("newGame");
     var btnLutar = document.getElementById("ataque");
     var btnSaveGame = document.getElementById("saveGame");
+
+    var btnTestarSorte = document.getElementById("testarSorte");
+    btnTestarSorte.onclick = function() {
+      player.testaSorte();
+      inpSorte.value = player.sorte;
+    }
     //click dos botões
     btnSaveGame.onclick = function() {
         saveData();
@@ -294,6 +300,7 @@ window.onload = function() {
                 monstro.energia = 0;
             }
             //tem que ser executado de qualquer maneira, então fica fora dos ifs
+            inpSorte.value = player.sorte;
             inpEnergia.value = player.energia > 0 ? player.energia : 0;
             inpEnergiaInimigo.value = monstro.energia > 0 ? monstro.energia : 0;
         }
