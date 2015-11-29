@@ -55,7 +55,7 @@ class Jogador extends Criatura {
     newGame() {
         this.habilidade = random(6) + 6;
         this.sorte = random(6) + 6;
-        this.energia = random(11) + 7;
+        this.energia = random(11) + 13;
         this.habInicial = this.habilidade;
         this.sortInicial = this.sorte;
         this.enerInicial = this.energia;
