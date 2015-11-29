@@ -7,6 +7,7 @@ var inpHabilidade;
 var inpAnotacoes;
 var inpHabilidadeInimigo;
 var inpEnergiaInimigo;
+var inpDadoNum;
 
 class Criatura {
     constructor (mensagemMorte) {
@@ -255,6 +256,7 @@ window.onload = function() {
     inpAnotacoes = document.getElementById("anotacoes");
     inpEnergiaInimigo = document.getElementById("energiaInimigo");
     inpHabilidadeInimigo = document.getElementById("habilidadeInimigo");
+    inpDadoNum = document.getElementById("dadoNum");
     selectGame = document.getElementById("gameList");
 
     //botões +1
@@ -296,7 +298,12 @@ window.onload = function() {
         saveData();
     };
     btnDado.onclick = function() {
-        inpDado.value = random(6);
+        var print = '';
+        var numDados = inpDadoNum.value;
+        for (var i = 1; i <= inpDadoNum.value; i++) {
+            print += i + " : " + random(6) + " - ";
+        }
+        inpDado.value = print;
     };
     btnNew.onclick = function() {
         player.newGame();
