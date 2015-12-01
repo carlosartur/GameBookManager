@@ -34,7 +34,7 @@ class Criatura {
 
     subEner (sub) {
         if (this.energia <= 0) {
-            alet(this.mensagemMorte);
+            alert(this.mensagemMorte);
             return false;
         } else {
             this.energia -= sub;
