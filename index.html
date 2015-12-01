@@ -17,12 +17,22 @@
 				<button type="button" class="btn btn-default" id="newGame" value="Novo Jogo!">
 					<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Novo Jogo
 				</button>
+				<button type="button" class="btn btn-default" id="loadGame" value="Carregar Jogo!">
+					<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Carregar Jogo
+				</button>
+				<select id="gameList" class="btn btn-default">
+					<option value="0">Selecione um jogo salvo</option>
+				</select>
+				<button type="button" class="btn btn-danger" id="drainOut" value="Esvaziar Slot!">
+					<span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Esvaziar Slot
+				</button>
 			</div>
 		</div>
 		<hr>
 		<div class="row">
 			<form class="form" id="form">
 			<div class="col-md-3">
+
 				<div class="form-group">
 					<label>Energia</label>
 					<div class="input-group">
@@ -76,18 +86,21 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
+
 			<div class="col-md-6">
 				<div class="form-group">
 					<label>Mochila & Anotações</label>
 					<textarea id="anotacoes" class="form-control" rows="9"></textarea>
 				</div>
 			</div>
+
 			<div class="col-md-3">
 				<div class="form-group">
 					<label>Dado</label>
 					<div class="input-group">
-						<input type="number" id="dado" class="form-control" readonly="" />
+						<input type="text" id="dado" class="form-control" readonly="" />
 
 						<div class="input-group-btn">
 							<button id="dadoBtn" type="button" class="btn btn-warning" value="Jogar!">
@@ -95,6 +108,11 @@
 							</button>
 						</div>
 					</div>
+				</div>
+
+				<div class="form-group">
+					<label>Numero de dados</label>
+					<input type="number" id="dadoNum" class="form-control" min="1" max="5" value="1"/>
 				</div>
 
 				<fieldset>
@@ -114,6 +132,7 @@
 			</div>
 			</form>
 		</div>
+
 	</div>
 </body>
 </html>
