@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Game Book Manager - JavaScript RPG Manager!</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Game Book Manager</h1>
+				<button type="button" class="btn btn-success" id="saveGame" value="Salvar Jogo!">
+					<span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Salvar Jogo
+				</button>
+				<button type="button" class="btn btn-default" id="newGame" value="Novo Jogo!">
+					<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Novo Jogo
+				</button>
+				<button type="button" class="btn btn-default" id="loadGame" value="Carregar Jogo!">
+					<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Carregar Jogo
+				</button>
+				<select id="gameList" class="btn btn-default">
+					<option value="0">Selecione um jogo salvo</option>
+				</select>
+				<button type="button" class="btn btn-danger" id="drainOut" value="Esvaziar Slot!">
+					<span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Esvaziar Slot
+				</button>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<form class="form" id="form">
+			<div class="col-md-3">
+
+				<div class="form-group">
+					<label>Energia</label>
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-primary" type="button" id="energiaPP" value="+">
+								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+							</button>
+						</div>
+						<input type="number" class="form-control" id="energia" readonly="" />
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-danger" id="energiaMM" value="-">
+								<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label>Habilidade</label>
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-primary" type="button" id="habilidadePP" value="+">
+								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+							</button>
+						</div>
+						<input type="number" id="habilidade" class="form-control" readonly="" />
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-danger" id="habilidadeMM" value="-">
+								<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label>Sorte</label>
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button class="btn btn-primary" type="button" id="sortePP" value="+">
+								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+							</button>
+						</div>
+						<input type="number" id="sorte" class="form-control" readonly="" />
+						<div class="input-group-btn">
+							<button id="testarSorte" type="button" class="btn btn-warning" value="Testar Sorte">
+								<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+							</button>
+							<button type="button" class="btn btn-danger" id="sorteMM" value="-">
+								<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Mochila & Anotações</label>
+					<textarea id="anotacoes" class="form-control" rows="9"></textarea>
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="form-group">
+					<label>Dado</label>
+					<div class="input-group">
+						<input type="text" id="dado" class="form-control" readonly="" />
+
+						<div class="input-group-btn">
+							<button id="dadoBtn" type="button" class="btn btn-warning" value="Jogar!">
+								<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label>Numero de dados</label>
+					<input type="number" id="dadoNum" class="form-control" min="1" max="5" value="1"/>
+				</div>
+
+				<fieldset>
+					<legend>Combate</legend>
+					<div class="form-group">
+						<label>Energia</label>
+						<input type="number" id="energiaInimigo" class="form-control" min="0" placeholder="Energia do Inimigo" />
+					</div>
+					<div class="form-group">
+						<label>Habilidade</label>
+						<input type="number" id="habilidadeInimigo" class="form-control" min="0" placeholder="Habilidade do Inimigo"/>
+					</div>
+					<div class="form-group">
+						<button type="button" class="btn btn-danger" id="ataque" value="LUTAR!">Lutar!</button>
+					</div>
+				</fieldset>
+			</div>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>
