@@ -7,15 +7,19 @@ class Jogador extends Criatura {
     }
 
     newGame() {
-        this.habilidade = random(6) + 6;
-        this.sorte = random(6) + 6;
-        this.energia = random(11) + 7;
+        this.habilidade = random(document.getElementById("configHabilidadeDados").value * 6) + parseInt(document.getElementById("configHabilidadeAdicional").value);
+        this.sorte = random(document.getElementById("configSorteDados").value * 6) + parseInt(document.getElementById("configSorteAdicional").value);
+        this.energia = random(document.getElementById("configEnergiaDados").value * 6) + parseInt(document.getElementById("configEnergiaAdicional").value);
         this.habInicial = this.habilidade;
         this.sortInicial = this.sorte;
         this.enerInicial = this.energia;
     }
 
     testaSorte () {
+        if (this.sorte < 2) {
+            alert("Com sorte menor que 2, o resultado será sempre azarado.");
+            return false;
+        }
         var testar = random(11) + 1;
         var result;
         if (testar > this.sorte) {

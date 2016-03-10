@@ -161,14 +161,19 @@ function events() {
     btnSaveGame.onclick = function() {
         saveData();
     };
+
     btnDado.onclick = function() {
-        var print = '';
-        var numDados = inpDadoNum.value;
+        var div = document.querySelector('#dados');
+        div.innerHTML = '';
         for (var i = 1; i <= inpDadoNum.value; i++) {
-            print += i + " : " + random(6) + " - ";
+            var div_to_insert = document.createElement('div');
+
+            div_to_insert.style = 'margin:10px; height:50px; width:50px; border-style:solid; border-color:"#000"; text-align:center;';
+            div_to_insert.innerHTML = '<h4>' + random(6) + '</h4>';
+            div.appendChild(div_to_insert);
         }
-        inpDado.value = print;
     };
+
     btnNew.onclick = function() {
         player.newGame();
         inpAnotacoes.value = '';
@@ -177,76 +182,81 @@ function events() {
         inpHabilidade.value = player.habilidade;
         saveData();
     };
+
     btnEnergiaPP.onclick = function() {
         player.energiaAdd(1);
         inpEnergia.value = player.energia;
     };
+
     btnEnergiaMM.onclick = function() {
         player.energiaSub(1);
         inpEnergia.value = player.energia;
     };
+
     btnHabilidadePP.onclick = function() {
         player.habilidadeAdd();
         inpHabilidade.value = player.habilidade;
     };
+
     btnHabilidadeMM.onclick = function() {
         player.habilidadeSub();
         inpHabilidade.value = player.habilidade;
     };
+
     btnSortePP.onclick = function() {
         player.sorteAdd();
         inpSorte.value = player.sorte;
     };
+
     btnSorteMM.onclick = function() {
         player.sorteSub();
         inpSorte.value = player.sorte;
     };
+
     btnLutar.onclick = function() {
         var monstro = new Monstro(inpEnergiaInimigo.value, inpHabilidadeInimigo.value);
-        //percorre enquanto os dois viverem.
+
         while (player.energia > 0 && monstro.energia > 0) {
             var ataquePlayer = player.ataque();
             var ataqueMonstro = monstro.ataque();
             var dano = 0;
-            //se ataques forem iguais, ninguem toma dano.
+            var mensagem = "Seu ataque: " + ataquePlayer + "\nAtaque inimigo: " + ataqueMonstro;
+
             if (ataqueMonstro === ataquePlayer) {
-                alert("Neste turno, ninguém toma dano.");
+                alert(mensagem + "\nNeste turno, ninguém toma dano.");
             } else {
-                //monstro ganha turno
+
                 if (ataqueMonstro > ataquePlayer) {
-                    alert("Você toma dano!");
-                    dano = 1;
-                    //testa sorte para tentar minimizar o ferimento
+                    alert(mensagem + "\nVocê toma dano!");
+                    dano = document.getElementById("configReducaoEnergiaPersonagem").value;
+
                     if (confirm("Deseja testar sua sorte, para tentar minimizar seu ferimento?")) {
-                        //se for azarado, tem 2 pontos extras de energia tirados, totalizando 3.
                         if (!player.testaSorte()) {
-                            dano = 3;
+                            dano++;
+                        } else {
+                            dano--;
                         }
                     }
-                    //se respondeu que não quer testar sorte, toma 2 pontos de dano padrão
-                    else {
-                        dano = 2;
-                    }
                     player.energiaSub(dano);
+
                 } else {
-                    alert("Você feriu o seu inimigo!");
-                    dano = 1;
+                    alert(mensagem + "\nVocê feriu o seu inimigo!");
+                    dano = document.getElementById("configReducaoEnergiaInimigo").value;
+
                     if (confirm("Deseja testar sua sorte, para tentar ferir mais ainda seu inimigo?")) {
                         //se for sortudo, tem dois pontos extras de energia a tirar do inimigo
                         if (player.testaSorte()) {
-                            dano = 3;
+                            dano++;
+                        } else {
+                            dano--;
                         }
-                    }
-                    //se não quer testar sorte, 2 pontos de energia padrão
-                    else {
-                        dano = 2;
                     }
                     monstro.subEner(dano);
                 }
             }
             //pergunta se não quer fugir, tira mais dois de dano, mas encerra a luta
             if (confirm("Em alguns casos, lhe é dada a possibilidade de fugir de uma luta. Você quer (e pode) fugir?")) {
-                player.energiaSub(2);
+                player.energiaSub(getElementById("configReducaoEnergiaPersonagem").value);
                 monstro.energia = 0;
             }
             //tem que ser executado de qualquer maneira, então fica fora dos ifs

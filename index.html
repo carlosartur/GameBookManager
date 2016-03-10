@@ -31,108 +31,159 @@
 		<hr>
 		<div class="row">
 			<form class="form" id="form">
-			<div class="col-md-3">
 
-				<div class="form-group">
-					<label>Energia</label>
-					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-primary" type="button" id="energiaPP" value="+">
-								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-							</button>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>Energia</label>
+						<div class="input-group">
+							<div class="input-group-btn">
+								<button class="btn btn-primary" type="button" id="energiaPP" value="+">
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								</button>
+							</div>
+							<input type="number" class="form-control" id="energia" readonly="" />
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-danger" id="energiaMM" value="-">
+									<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+								</button>
+							</div>
 						</div>
-						<input type="number" class="form-control" id="energia" readonly="" />
-						<div class="input-group-btn">
-							<button type="button" class="btn btn-danger" id="energiaMM" value="-">
-								<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-							</button>
+					</div>
+
+					<div class="form-group">
+						<label>Habilidade</label>
+						<div class="input-group">
+							<div class="input-group-btn">
+								<button class="btn btn-primary" type="button" id="habilidadePP" value="+">
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								</button>
+							</div>
+							<input type="number" id="habilidade" class="form-control" readonly="" />
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-danger" id="habilidadeMM" value="-">
+									<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+								</button>
+							</div>
 						</div>
+					</div>
+
+					<div class="form-group">
+						<label>Sorte</label>
+						<div class="input-group">
+							<div class="input-group-btn">
+								<button class="btn btn-primary" type="button" id="sortePP" value="+">
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								</button>
+							</div>
+							<input type="number" id="sorte" class="form-control" readonly="" />
+							<div class="input-group-btn">
+								<button id="testarSorte" type="button" class="btn btn-warning" value="Testar Sorte">
+									<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-danger" id="sorteMM" value="-">
+									<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Mochila & Anotações</label>
+						<textarea id="anotacoes" class="form-control" rows="9"></textarea>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label>Habilidade</label>
-					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-primary" type="button" id="habilidadePP" value="+">
-								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-							</button>
-						</div>
-						<input type="number" id="habilidade" class="form-control" readonly="" />
-						<div class="input-group-btn">
-							<button type="button" class="btn btn-danger" id="habilidadeMM" value="-">
-								<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-							</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label>Sorte</label>
-					<div class="input-group">
-						<div class="input-group-btn">
-							<button class="btn btn-primary" type="button" id="sortePP" value="+">
-								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-							</button>
-						</div>
-						<input type="number" id="sorte" class="form-control" readonly="" />
-						<div class="input-group-btn">
-							<button id="testarSorte" type="button" class="btn btn-warning" value="Testar Sorte">
-								<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-							</button>
-							<button type="button" class="btn btn-danger" id="sorteMM" value="-">
-								<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-							</button>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="col-md-6">
-				<div class="form-group">
-					<label>Mochila & Anotações</label>
-					<textarea id="anotacoes" class="form-control" rows="9"></textarea>
-				</div>
-			</div>
-
-			<div class="col-md-3">
-				<div class="form-group">
-					<label>Dado</label>
-					<div class="input-group">
-						<input type="text" id="dado" class="form-control" readonly="" />
-
-						<div class="input-group-btn">
+				<div class="col-md-3">
+					<div class="form-group">
+						<label>Dado</label>
+						<div class="input-group">
 							<button id="dadoBtn" type="button" class="btn btn-warning" value="Jogar!">
 								<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
 							</button>
 						</div>
+						<div class="input-group" id="dados"></div>
 					</div>
-				</div>
 
-				<div class="form-group">
-					<label>Numero de dados</label>
-					<input type="number" id="dadoNum" class="form-control" min="1" max="5" value="1"/>
-				</div>
+					<div class="form-group">
+						<label>Numero de dados</label>
+						<input type="number" id="dadoNum" class="form-control" min="1" max="5" value="1"/>
+					</div>
 
-				<fieldset>
-					<legend>Combate</legend>
-					<div class="form-group">
-						<label>Energia</label>
-						<input type="number" id="energiaInimigo" class="form-control" min="0" placeholder="Energia do Inimigo" />
-					</div>
-					<div class="form-group">
-						<label>Habilidade</label>
-						<input type="number" id="habilidadeInimigo" class="form-control" min="0" placeholder="Habilidade do Inimigo"/>
-					</div>
-					<div class="form-group">
-						<button type="button" class="btn btn-danger" id="ataque" value="LUTAR!">Lutar!</button>
-					</div>
-				</fieldset>
-			</div>
+					<fieldset>
+						<legend>Combate</legend>
+						<div class="form-group">
+							<label>Energia</label>
+							<input type="number" id="energiaInimigo" class="form-control" min="0" placeholder="Energia do Inimigo" />
+						</div>
+						<div class="form-group">
+							<label>Habilidade</label>
+							<input type="number" id="habilidadeInimigo" class="form-control" min="0" placeholder="Habilidade do Inimigo"/>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-danger" id="ataque" value="LUTAR!">Lutar!</button>
+						</div>
+					</fieldset>
+				</div>
 			</form>
 		</div>
-
+		<hr>
+		<form class='form' id='form2'>
+			<h4>Configurações</h4>
+			<br>
+			<div class="col-md-6">
+				<h4>Combate</h4>
+				<h5>Para configurar corretamente, verifique como funciona o combate com criaturas</h5>
+				<div class="form-group">
+					<label>Quantos pontos de vida você perde quando toma dano, em combate?(Este também é o numero de pontos de vida que vai perder caso resolva fugir, quando permitido)</label>
+					<div class="input-group">
+						<input type="number" class="form-control" id="configReducaoEnergiaPersonagem" min="1" value="1"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Quantos pontos de vida seu adversário perde quando toma dano, em combate?</label>
+					<div class="input-group">
+						<input type="number" class="form-control" id="configReducaoEnergiaInimigo" min="1" value="1"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<h4>Configuração de personagem</h4>
+				<h5>Para configurar corretamente, verifique como funciona a definição de cada caracteristica(sorte, habilidade, energia)</h5>
+				<div class="form-group">
+					<label>Sorte - Quantos dados devem ser jogados?</label>
+					<div class="input-group">
+						<input type="number" class="form-control" id="configSorteDados" min="1" value="1"/>
+					</div>
+					<label>Sorte - Qual valor fixo deve ser somado aos dados jogados?</label>
+					<div class="input-group">
+						<input type="number" class="form-control" id="configSorteAdicional" min="6" value="6"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Habilidade - Quantos dados devem ser jogados?</label>
+					<div class="input-group">
+						<input type="number" class="form-control" id="configHabilidadeDados" min="1" value="1"/>
+					</div>
+					<label>Habilidade - Qual valor fixo deve ser somado aos dados jogados?</label>
+					<div class="input-group">
+						<input type="number" class="form-control" id="configHabilidadeAdicional" min="6" value="6"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Energia - Quantos dados devem ser jogados?</label>
+					<div class="input-group">
+						<input type="number" class="form-control" id="configEnergiaDados" min="1" value="1"/>
+					</div>
+					<label>Energia - Qual valor fixo deve ser somado aos dados jogados?</label>
+					<div class="input-group">
+						<input type="number" class="form-control" id="configEnergiaAdicional" min="6" value="6"/>
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
