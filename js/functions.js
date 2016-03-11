@@ -1,15 +1,23 @@
 "use strict";
 
-var selectGame;
-var canWriteHTML5Storage;
-var inpEnergia;
-var inpSorte;
-var inpHabilidade;
-var inpAnotacoes;
-var inpHabilidadeInimigo;
-var inpEnergiaInimigo;
-var inpDadoNum;
-var player = new Jogador();
+var selectGame,
+    canWriteHTML5Storage,
+    inpEnergia,
+    inpSorte,
+    inpHabilidade,
+    inpAnotacoes,
+    inpHabilidadeInimigo,
+    inpEnergiaInimigo,
+    inpDadoNum,
+    inpConfigTomaDano,
+    inpConfigProvocaDano,
+    inpConfigSorteDados,
+    inpConfigSorteAdicional,
+    inpConfigHabilidadeDados,
+    inpConfigHabilidadeAdicional,
+    inpConfigEnergiaDados,
+    inpConfigEnergiaAdicional,
+    player = new Jogador();
 events();
 
 function random(max) {
@@ -39,6 +47,7 @@ function loadData() {
     }
     var gameSlot = JSON.parse(jsonSlot);
     var gameData = gameSlot[selectedGame];
+    
     player.energia = gameData["energia"];
     player.enerInicial = gameData["energiaInicial"];
     player.habilidade = gameData["habilidade"];
@@ -49,6 +58,15 @@ function loadData() {
     inpEnergia.value = player.energia;
     inpHabilidade.value = player.habilidade;
     inpSorte.value = player.sorte;
+
+    inpConfigTomaDano.value = gameData["configuracoes"]["inpConfigTomaDano"]
+    inpConfigProvocaDano.value = gameData["configuracoes"]["inpConfigProvocaDano"]
+    inpConfigSorteDados.value = gameData["configuracoes"]["inpConfigSorteDados"]
+    inpConfigSorteAdicional.value = gameData["configuracoes"]["inpConfigSorteAdicional"]
+    inpConfigHabilidadeDados.value = gameData["configuracoes"]["inpConfigHabilidadeDados"]
+    inpConfigHabilidadeAdicional.value = gameData["configuracoes"]["inpConfigHabilidadeAdicional"]
+    inpConfigEnergiaDados.value = gameData["configuracoes"]["inpConfigEnergiaDados"]
+    inpConfigEnergiaAdicional.value = gameData["configuracoes"]["inpConfigEnergiaAdicional"]
 }
 
 function saveData() {
@@ -69,7 +87,17 @@ function saveData() {
         "habilidadeInicial":player.habInicial,
         "sorte": player.sorte,
         "sortInicial": player.sortInicial,
-        "anotacoes": inpAnotacoes.value
+        "anotacoes": inpAnotacoes.value,
+        "configuracoes": {
+            "inpConfigTomaDano": inpConfigTomaDano.value,
+            "inpConfigProvocaDano": inpConfigProvocaDano.value,
+            "inpConfigSorteDados": inpConfigSorteDados.value,
+            "inpConfigSorteAdicional": inpConfigSorteAdicional.value,
+            "inpConfigHabilidadeDados": inpConfigHabilidadeDados.value,
+            "inpConfigHabilidadeAdicional": inpConfigHabilidadeAdicional.value,
+            "inpConfigEnergiaDados": inpConfigEnergiaDados.value,
+            "inpConfigEnergiaAdicional": inpConfigEnergiaAdicional.value
+        }
     };
 
     var jsonSlot = localStorage.getItem('savedGames');
@@ -122,6 +150,15 @@ function events() {
     inpHabilidadeInimigo = document.getElementById("habilidadeInimigo");
     inpDadoNum = document.getElementById("dadoNum");
     selectGame = document.getElementById("gameList");
+
+    inpConfigTomaDano = document.getElementById("inpConfigTomaDano");
+    inpConfigProvocaDano = document.getElementById("inpConfigProvocaDano");
+    inpConfigSorteDados = document.getElementById("inpConfigSorteDados");
+    inpConfigSorteAdicional = document.getElementById("inpConfigSorteAdicional");
+    inpConfigHabilidadeDados = document.getElementById("inpConfigHabilidadeDados");
+    inpConfigHabilidadeAdicional = document.getElementById("inpConfigHabilidadeAdicional");
+    inpConfigEnergiaDados = document.getElementById("inpConfigEnergiaDados");
+    inpConfigEnergiaAdicional = document.getElementById("inpConfigEnergiaAdicional");
 
     //botões +1
     var btnEnergiaPP = document.getElementById("energiaPP");
