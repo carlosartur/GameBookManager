@@ -47,7 +47,7 @@ function loadData() {
     }
     var gameSlot = JSON.parse(jsonSlot);
     var gameData = gameSlot[selectedGame];
-    
+
     player.energia = gameData["energia"];
     player.enerInicial = gameData["energiaInicial"];
     player.habilidade = gameData["habilidade"];
@@ -205,7 +205,7 @@ function events() {
         for (var i = 1; i <= inpDadoNum.value; i++) {
             var div_to_insert = document.createElement('div');
 
-            div_to_insert.style = 'margin:10px; height:50px; width:50px; border-style:solid; border-color:"#000"; text-align:center;';
+            div_to_insert.style = 'margin:10px; height:50px; width:50px; border-style:solid; brder-color:"#000"; text-align:center;';
             div_to_insert.innerHTML = '<h4>' + random(6) + '</h4>';
             div.appendChild(div_to_insert);
         }
